@@ -21,9 +21,21 @@ app.get('/api/v1/pokemon/:nomePokemon', function(req, res){
 
     const poke = data.pokemon.find(poke => poke.name.toLowerCase() === nomePokemon.toLowerCase())
 
-    if (!poke) return res.status(404).json({error: 'Pokémon não encontrado'});
+    if (!poke) return res.status(404).json({error: 'Pokémon não encontrado 1'});
     res.json(poke);
    
+})
+
+//retorna  os pokemons de um tipo especifico
+app.get('/api/v1/pokemon/tipo/:tipoPokemon', function(req, res){
+    const { tipoPokemon } = req.params;
+
+    const pokemons = data.pokemon.filter(poke => poke.type.map(t => t.toLowerCase()).includes(tipoPokemon.toLowerCase()));
+    
+    if (pokemons.length == 0) return res.status(404).json({error: 'Tipo não encontrado'});
+    res.json(pokemons);
+
+
 })
 
 /*//retorna a lista dos pokémons que são fracos contra o pokémon informado
@@ -44,6 +56,7 @@ app.get('/api/v1/advantage/:nomePokemon', function(req, res){
   
 })*/
 
+
 //retorna a lista de pokemons que são fracos contra o pokemon informado 
 app.post('/api/v1/advantage/:nomePokemon', function(req, res) {
     //pega o pokemon
@@ -53,7 +66,7 @@ app.post('/api/v1/advantage/:nomePokemon', function(req, res) {
     const pokemon = data.pokemon.find(poke => poke.name.toLowerCase() === nomePokemon.toLowerCase());
 
     if (!pokemon) {
-        return res.status(404).json({ error: 'Pokémon não encontrado' });
+        return res.status(404).json({ error: 'Pokémon não encontrado 2' });
     }
 
     const tipo  = pokemon.type;
@@ -65,12 +78,7 @@ app.post('/api/v1/advantage/:nomePokemon', function(req, res) {
     res.json(fracos);
 })
 
-//retorna lista de pokemons que sao fortes contra o pokemon informado
-app.post('/api/v1/weakness/:nomePokemon', function(req, res){
-    const { nomePokemon } = req.params;
 
-
-})
 
 
 app.listen(3000, function(){
