@@ -3,7 +3,7 @@
 ### Para rodar, basta utilizar o comando `NODE SERVER.JS`
 Isso permitirá que a api rode em http://localhost:3000/
 
-Com isso, você pode utilizar os seguinter endpoints:
+Com isso, você pode utilizar os seguintes endpoints:
 #### Método Get
 * `'/api/v1/pokemon'` -> Que irá retornar uma lista com o nome de todos os pokemons;
 * `'/api/v1/pokemon/:nomePokemon'` -> Que irá retornar os dados de um pokemon especificado na requisição;
