@@ -1,7 +1,7 @@
 # CRIAÇÃO DE API PARA OBTER DADOS SOBRE POKEMONS
 
 ### Para rodar, basta utilizar o comando `NODE SERVER.JS`
-Isso permitirá que a api rode em ~http://localhost:3000/~
+Isso permitirá que a api rode em http://localhost:3000/
 
 Com isso, você pode utilizar os seguinter endpoints:
 #### Método Get
